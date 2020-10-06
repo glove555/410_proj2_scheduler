@@ -20,11 +20,13 @@ using namespace std;
 //had been running on the CPU and has been preempted
 void Scheduler::add(PCB p) {
 	ready_q->push(p);
+	sort();
 }
 
 //get next process
 PCB Scheduler::getNext() {
 	PCB next = ready_q->front();
+	ready_q->pop();
 	return next;
 }
 
